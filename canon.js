@@ -64,11 +64,11 @@ module.exports = function(hostUrlObject, opts) {
         
         if (options.isProduction) {
             // Running on production.
-            originalUrl = url.format(originalUrlObject);
-            
             var canonicalise = httpCanon() || wwwCanon();
                         
             if (canonicalise) {
+                originalUrl = url.format(originalUrlObject);
+                
                 // An http or www-based URL, so redirect to apex.
                 // Compose the expected canonical absolute URL.            
                 workingHostUrlObject.pathname = workingUrl;
