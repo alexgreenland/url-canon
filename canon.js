@@ -62,7 +62,6 @@ module.exports = function(hostUrlObject, opts) {
             return useWww !== reqWww;            
         };
         
-    
         if (options.isProduction) {
             // Running on production.
             var canonicalise = httpCanon() || wwwCanon();
