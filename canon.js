@@ -83,10 +83,9 @@ module.exports = function(hostUrlObject, opts) {
             // Running on development.
         }
         
-        console.log('workingUrl');
-        console.log(workingUrl);
-        console.log('originalUrl');
-        console.log(originalUrl);
+        console.log('workingUrl:' + workingUrl);
+        console.log('originalUrl:' + originalUrl);
+        console.log('\n\n');
                 
         if (workingUrl !== originalUrl) {
             res.redirect(workingUrl);
