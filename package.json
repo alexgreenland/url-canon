@@ -1,0 +1,16 @@
+{
+  "name": "url-canon",
+  "private": true,
+  "version": "0.1.0",
+  "description": "",
+  "main": "canon.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "devDependencies": {
+      "mocha": "^2.0.1",
+      "node-mocks-http": "^1.2.1"
+  },
+  "author": "Alex Greenland <http://alexgreenland.com/>",
+  "license": "MIT"
+}

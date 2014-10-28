@@ -1,0 +1,9 @@
+{
+    "name": "url-canon",
+    "repo": "alexgreenland/url-canon",
+    "version": "0.1.0",
+    "main": "canon.js",
+    "scripts": ["canon.js"],
+    "author": "Alex Greenland <http://alexgreenland.com/>",
+    "license": "MIT"
+}
