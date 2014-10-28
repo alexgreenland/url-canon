@@ -22,7 +22,7 @@ module.exports = function(hostUrlObject, opts) {
         originalUrlObject.protocol = req.protocol;
         originalUrlObject.hostname = req.hostname;
         originalUrlObject.pathname = req.url;
-        var originalUrl = url.format(originalUrlObject);    
+        var originalUrl = req.url;
             
         var slashCanon = function() {
             // Remove all trailing slashes.
@@ -64,8 +64,10 @@ module.exports = function(hostUrlObject, opts) {
         
         if (options.isProduction) {
             // Running on production.
-            var canonicalise = httpCanon() || wwwCanon();
+            originalUrl = url.format(originalUrlObject);
             
+            var canonicalise = httpCanon() || wwwCanon();
+                        
             if (canonicalise) {
                 // An http or www-based URL, so redirect to apex.
                 // Compose the expected canonical absolute URL.            
