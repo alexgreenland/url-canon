@@ -23,11 +23,7 @@ module.exports = function(hostUrlObject, opts) {
         originalUrlObject.host = req.host;
         originalUrlObject.pathname = req.url;
         var originalUrl = req.url;
-        
-        console.log('req.url:' + req.url);
-        console.log('originalUrlObject:' + JSON.stringify(originalUrlObject));
-        console.log('originalUrl:' + originalUrl);
-        
+                
         if (options.isProduction) {
             originalUrl = url.format(originalUrlObject);
         }
@@ -89,11 +85,7 @@ module.exports = function(hostUrlObject, opts) {
         } else {
             // Running on development.
         }
-        
-        console.log('workingUrl:' + workingUrl);
-        console.log('originalUrl:' + originalUrl);
-        console.log('\n\n');
-                
+                        
         if (workingUrl !== originalUrl) {
             res.redirect(workingUrl);
             res.end();
