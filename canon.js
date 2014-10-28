@@ -23,6 +23,11 @@ module.exports = function(hostUrlObject, opts) {
         originalUrlObject.hostname = req.hostname;
         originalUrlObject.pathname = req.url;
         var originalUrl = req.url;
+        
+        console.log('req.url:' + req.url);
+        console.log('originalUrlObject:' + JSON.stringify(originalUrlObject));
+        console.log('originalUrl:' + originalUrl);
+        
         if (options.isProduction) {
             originalUrl = url.format(originalUrlObject);
         }
