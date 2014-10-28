@@ -20,7 +20,7 @@ module.exports = function(hostUrlObject, opts) {
         // Proper original URL, not path.
         var originalUrlObject = {}
         originalUrlObject.protocol = req.protocol;
-        originalUrlObject.hostname = req.hostname;
+        originalUrlObject.host = req.host;
         originalUrlObject.pathname = req.url;
         var originalUrl = req.url;
         
