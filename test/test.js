@@ -297,6 +297,25 @@ describe('canon in apex HTTPS mode', function() {
         canon(mockExpress.req, mockExpress.res, mockExpress.next);
     });
     
+    it('should not redirect "blog" to apex', function(done) {
+        var hostUrlObject = extend({}, initialHostUrlObject);
+        
+        var options = extend({}, initialOptions);
+            
+        var canon = require('../canon')(hostUrlObject, options);
+        
+        var reqUrl = 'https://blog.example.org/';
+        
+        // Expected canonical URL
+        var canonUrl = 'https://blog.example.org/'
+
+        var mockExpress = require('../mock-express')(reqUrl, done, done, function(redirectUrl) {
+            assert.fail(redirectUrl, canonUrl);
+        });
+
+        canon(mockExpress.req, mockExpress.res, mockExpress.next);
+    });
+    
     it('should not redirect URLs with equal paths: 1', function(done) {
         var hostUrlObject = extend({}, initialHostUrlObject);
         
@@ -439,6 +458,26 @@ describe('canon in www HTTPS mode', function() {
             done();
         }, function(redirectUrl) {
             assert.equal(canonUrl, redirectUrl);
+        });
+
+        canon(mockExpress.req, mockExpress.res, mockExpress.next);
+    });
+    
+    it('should not redirect "blog" to "www"', function(done) {
+        var hostUrlObject = extend({}, initialHostUrlObject);
+        hostUrlObject.hostname = 'www.' + hostUrlObject.hostname;
+        
+        var options = extend({}, initialOptions);
+            
+        var canon = require('../canon')(hostUrlObject, options);
+        
+        var reqUrl = 'https://blog.example.org/';
+        
+        // Expected canonical URL
+        var canonUrl = 'https://blog.example.org/'
+
+        var mockExpress = require('../mock-express')(reqUrl, done, done, function(redirectUrl) {
+            assert.fail(redirectUrl, canonUrl);
         });
 
         canon(mockExpress.req, mockExpress.res, mockExpress.next);

@@ -1,7 +1,7 @@
 {
   "name": "url-canon",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
   "main": "canon.js",
   "scripts": {
@@ -12,5 +12,5 @@
       "node-mocks-http": "^1.2.1"
   },
   "author": "Alex Greenland <http://alexgreenland.com/>",
-  "license": "MIT"
+  "license": "Apache License 2.0"
 }
