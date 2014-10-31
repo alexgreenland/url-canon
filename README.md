@@ -3,6 +3,7 @@ url-canon: Express middleware for canonicalisation of URLs with respect to HTTP 
 
 ## Installation
 This module is a [component](https://github.com/componentjs/component).
+
     $ component install alexgreenland/url-canon
 
 ## Usage
