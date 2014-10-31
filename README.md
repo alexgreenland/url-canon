@@ -8,30 +8,32 @@ This module is a [component](https://github.com/componentjs/component).
 ## Usage
 url-canon should be invoked as soon as possible in your middleware stack.
     
-    // Your Express app.
+Your Express app.
+    
     var app = express();
     var urlCanon = require('./components/alexgreenland/url-canon/0.3.0/canon');
     
-    // Canonicalisation options.
-    // Set protocol to "https" to redirect requests on HTTP to the equivalent
-    // HTTPS URL. Set protocol to "http" to redirect requests on HTTPS to the 
-    // equivalent HTTP URL.
-    // Set hostname to your canonical hostname.
+Canonicalisation options.
+Set protocol to "https" to redirect requests on HTTP to the equivalent HTTPS URL. Set protocol to "http" to redirect requests on HTTPS to the equivalent HTTP URL. Set hostname to your canonical hostname.
+    
     var canonUrlObject = {
         "protocol": "{http||https}",
         "hostname": "{your hostname}"
     };
     
-    // Options (optional). Default:
+Options (optional). Default:
+    
     var opts = {
         "isProduction": true,
         "proxy": false
     };
     
-    // Invoke the canon middleware with default options.
+Invoke the canon middleware with default options.
+    
     app.use(urlCanon(hostUrlObject));
     
-    // Invoke the canon middleware with custom options.
+Invoke the canon middleware with custom options.
+    
     app.use(urlCanon(hostUrlObject, opts));
     
 ## Examples
